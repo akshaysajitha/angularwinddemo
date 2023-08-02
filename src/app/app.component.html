@@ -18,59 +18,22 @@
   })()
 </script>
 <nav class="navbar navbar-dark bg-primary">
-  <h1>angulardemo</h1>
-  <a routerLink="/home" id="homelink">About</a>
+  <h1>Angulardemo</h1>
+  <a routerLink="/home" id="homelink">Register</a>
+  <a routerLink="/student" id="homelink">student</a>
 </nav>
 
-<div class="form-body">
+<!--heading start -->
+<div class="container">
   <div class="row">
-      <div class="form-holder">
-          <div class="form-content">
-              <div class="form-items">
-                  <h3>Register Today</h3>
-                  <p>Fill in the data below.</p>
-                  <form class="requires-validation" #myform="ngForm" (ngSubmit)="formsubmit()">
-
-                      <div class="col-md-12">
-                        <label for="">name</label>
-                         <input class="form-control" id="name" name="name" placeholder="enter name" [(ngModel)]="name" required>
-                         
-                      </div>
-                      <br>
-                      <div class="col-md-12">
-                        <label for="">email</label>
-                         <input class="form-control" id="email" name="email" placeholder="enter email" [(ngModel)]="email" required>
-                         
-                      </div>
-
-                     
-                     <br>
-
-                     <div class="col-md-12">
-                      <label for="">phone</label>
-                      <input class="form-control" type="number"  id="phone" name="phone" placeholder="enter number"  [(ngModel)]="phnumber" required>
-                      <!--<div *ngIf="myform.controls.phone.errors?.required">phone is required.</div>-->                      
-                   </div>
-                   <br>
-
-                   <div class="col-md-12">
-                    <label for="">address</label>
-                    <input class="form-control"  id="address" name="address" placeholder="enter address" [(ngModel)]="address" required>
-                    <!--<div *ngIf="myform.controls.address.errors?.required">address is required.</div>-->                    
-                 </div>
-                 <br>
-
-                    
-                      <div class="form-button mt-3">
-                          <button id="submit" type="submit" class="btn btn-primary" [disabled]="myform.invalid"  >Register</button>
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </div>
+    <div class="col">
+      
+      
+    </div>
   </div>
 </div>
 
+<!--heading end-->
 
 
 <router-outlet></router-outlet>

@@ -12,4 +12,19 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  title = 'home';
+  name:string=''
+  email:string=''
+  phnumber:string=''
+  address:string=''
+  formsubmit(){
+    console.log('name:'+this.name)
+    console.log('email:'+this.email)
+    console.log('phnumber:'+this.phnumber)
+    console.log('address:'+this.address)
+    
+    console.log('formsubmit')
+
+  }
+
 }

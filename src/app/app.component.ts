@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,17 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'home';
-  name:string=''
-  email:string=''
-  phnumber:string=''
-  address:string=''
-  formsubmit(){
-    console.log('name:'+this.name)
-    console.log('email:'+this.email)
-    console.log('phnumber:'+this.phnumber)
-    console.log('address:'+this.address)
-    
-    console.log('formsubmit')
-
-  }
+  constructor(private router: Router) {}
+ 
 }
