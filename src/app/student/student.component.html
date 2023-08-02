@@ -1,15 +1,16 @@
-<h1 style="text-align:center">student</h1>
+<h1 style="text-align: center">student</h1>
 
-<label for="cars">Choose a type :</label>
+<label for="studentdetials">Choose a type:</label>
 
 <select name="studentdetials" id="studentdetials" [(ngModel)]="selecttypevalue">
+  <option value="">-- Select Property --</option>
   <option value="id">id</option>
   <option value="name">name</option>
   <option value="address">address</option>
   <option value="number">number</option>
-</select> 
-<label for="">{{selecttypevalue}}</label>
-<label for="search">search</label>
+</select>
+
+<label for="search">Search:</label>
 <input type="text" id="search" name="search" [(ngModel)]="studentsearch">
 
 <div *ngIf="studentPresent(); else noStudentFound">
@@ -19,8 +20,9 @@
       <th>name</th>
       <th>address</th>
       <th>number</th>
+    </tr>
     <tr *ngFor="let studentDetails of students">
-      <ng-container *ngIf="studentDetails.name.toLowerCase() === studentsearch.toLowerCase()">
+      <ng-container *ngIf="studentDetails[selecttypevalue] == studentsearch">
         <td>{{ studentDetails.id }}</td>
         <td>{{ studentDetails.name }}</td>
         <td>{{ studentDetails.address }}</td>
@@ -33,18 +35,18 @@
 <ng-template #noStudentFound>
   <div>
     <table border="1px" id="tbl">
-        <tr>
-          <th>id</th>
-          <th>name</th>
-          <th>address</th>
-          <th>number</th>
-        <tr *ngFor="let item of students" >
-            <td>{{ item.id }}</td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.address }}</td>
-            <td>{{ item.number }}</td>
-        </tr>
-      </table>
-  </div>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>address</th>
+        <th>number</th>
+      </tr>
+      <tr *ngFor="let studentDetails of students">
+        <td>{{ studentDetails.id }}</td>
+        <td>{{ studentDetails.name }}</td>
+        <td>{{ studentDetails.address }}</td>
+        <td>{{ studentDetails.number }}</td>
+      </tr>
+ </table>
+ </div>
 </ng-template>
-

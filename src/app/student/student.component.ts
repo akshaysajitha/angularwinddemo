@@ -2,10 +2,10 @@ import { Component, OnInit,OnChanges } from '@angular/core';
 import student from '../student.json'
 
 interface Student {
-  id: number;
+  id: number|string;
   name: string;
   address: string;
-  number: number;
+  number: number|string;
   [key: string]: number | string;
 }
 
@@ -36,10 +36,19 @@ export class StudentComponent implements OnInit {
     const lowerCaseSearchTerm = this.studentsearch.toLowerCase();
     const selectedProperty = this.selecttypevalue.trim();
   
-    return this.students.some((student) =>
-      String(student[selectedProperty]).toLowerCase().includes(lowerCaseSearchTerm)
-    );
+    return this.students.some((student) => {
+      const propertyValue = student[selectedProperty];
+  
+      // Type guard: Check if the propertyValue is a string and then compare it
+      if (typeof propertyValue === 'string') {
+        return propertyValue.toLowerCase() === lowerCaseSearchTerm;
+      }
+  
+      return false;
+    });
   }
+  
+  
   
   
 }
