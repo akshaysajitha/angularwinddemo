@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnChanges } from '@angular/core';
 import student from '../student.json'
 
 interface Student {
@@ -6,6 +6,7 @@ interface Student {
   name: string;
   address: string;
   number: number;
+  [key: string]: number | string;
 }
 
 @Component({
@@ -21,9 +22,24 @@ export class StudentComponent implements OnInit {
   ngOnInit(): void {
     
   }
+  
+  
+  
   studentsearch=''
+  selecttypevalue=''
   studentPresent(): boolean {
-    return this.students.some(student => student.name.toLowerCase() === this.studentsearch.toLowerCase());
+    if (this.studentsearch.trim() === '' || this.selecttypevalue.trim() === '') {
+      // If the search term or select type value is empty, consider all students present
+      return false;
+    }
+  
+    const lowerCaseSearchTerm = this.studentsearch.toLowerCase();
+    const selectedProperty = this.selecttypevalue.trim();
+  
+    return this.students.some((student) =>
+      String(student[selectedProperty]).toLowerCase().includes(lowerCaseSearchTerm)
+    );
   }
+  
   
 }

@@ -1,4 +1,14 @@
 <h1 style="text-align:center">student</h1>
+
+<label for="cars">Choose a type :</label>
+
+<select name="studentdetials" id="studentdetials" [(ngModel)]="selecttypevalue">
+  <option value="id">id</option>
+  <option value="name">name</option>
+  <option value="address">address</option>
+  <option value="number">number</option>
+</select> 
+<label for="">{{selecttypevalue}}</label>
 <label for="search">search</label>
 <input type="text" id="search" name="search" [(ngModel)]="studentsearch">
 
