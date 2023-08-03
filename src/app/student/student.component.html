@@ -21,13 +21,14 @@
       <th>address</th>
       <th>number</th>
     </tr>
-    <tr *ngFor="let studentDetails of students">
-      <ng-container *ngIf="studentDetails[selecttypevalue] == studentsearch">
+    
+    <tr *ngFor="let studentDetails of foundStudents">
+      
         <td>{{ studentDetails.id }}</td>
         <td>{{ studentDetails.name }}</td>
         <td>{{ studentDetails.address }}</td>
         <td>{{ studentDetails.number }}</td>
-      </ng-container>
+      
     </tr>
   </table>
 </div>
