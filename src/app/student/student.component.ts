@@ -25,22 +25,21 @@ export class StudentComponent implements OnInit {
   ngOnInit(): void {}
 
   studentPresent(): boolean {
-    if (this.studentsearch.trim() === '' || this.selecttypevalue.trim() === '') {
+    if (!this.studentsearch || this.studentsearch.trim() === '' || !this.selecttypevalue) {
       // If the search term or select type value is empty, consider all students present
       this.foundStudents = [];
       return false;
     }
 
-    const lowerCaseSearchTerm = this.studentsearch.toLowerCase();
-    const selectedProperty = this.selecttypevalue.trim();
+    const lowerCaseSearchTerm = this.studentsearch.trim().toLowerCase();
+    const selectedProperty = this.selecttypevalue.trim().toLowerCase();
 
     this.foundStudents = this.students.filter((student) => {
       const propertyValue = student[selectedProperty];
-      
 
       // Type guard: Check if the propertyValue is a string and then compare it
       if (typeof propertyValue === 'string') {
-        return propertyValue.toLowerCase() === lowerCaseSearchTerm;
+        return propertyValue.toLowerCase().includes(lowerCaseSearchTerm);
       }
 
       return false;
